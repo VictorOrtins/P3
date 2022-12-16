@@ -1,0 +1,8 @@
+aaaaa
+START
+START
+Cliente: OPA
+Cliente: RNDNUM
+Cliente: RNDNUM
+Cliente: CRTIME
+Cliente: SHTDWN

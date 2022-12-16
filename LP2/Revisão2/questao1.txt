@@ -1,0 +1,14 @@
+O problema da seção crítica é o problema da programação em concorrência em que múltiplas threads tentam acessar
+uma mesma região de memória ao mesmo tempo, podendo gerar inconsistência de memória e do resultado esperado
+pela execução do programa. Um exemplo em que pode ocorrer esse problema é quando criamos 3 threads e fazemos
+com que elas somem uma mesma variável global 100000 de vezes dentro da função da thread. A seção crítica, em si,
+é a seção do código que pode gerar inconsistência no resultado final da variável global, ou seja, nesse caso,
+a seção crítica é o trecho de código que incrementa tal variável. Se o problema da seção crítica não for tratado, o resultado da variável global no final dificilmente será 300000
+
+A solução ideal desse problema precisa atender 4 propriedades:
+
+Exclusão mútua: No máximo uma thread pode acessar a seção crítica
+Ausência de deadlock: Se 2 threads tentam entrar na seção crítica ao mesmo tempo, um deles conseguirá de imediato
+Ausência de atraso desnecessário: Se uma thread tentar entrar na seção crítica enquanto esta está vazia, a sua entrada sempre deverá ser permitida.
+Entrada eventual: Se a thread em algum momento tenta entrar na seção crítica, em algum momento ela também deve conseguir entrar nela.
+

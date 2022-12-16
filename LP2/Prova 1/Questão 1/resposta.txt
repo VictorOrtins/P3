@@ -1,0 +1,10 @@
+O tempo de criar 50 threads, nas execuções, foi menor do que o de criar 50 processos, já que a
+instância em execução da entidade do SO processo demanda mais processamento e memória para ser criada, já que
+cada processo devem ter regiões de memórias diferentes a serem acessadas por cada um deles, o que demanda também
+maior processamento para gerenciar as instruções feitas por cada processo. No caso das threads,
+todas elas estarão dentro do escopo de um processo
+
+Um processo é uma entidade definida pelo SO que representa um programa em execução. As threads apresentam-se
+dentro dos processos, como se fossem pequenos pedaços do processo, partes do contexto de um processo.
+Tanto a thread como o processo tem contexto, sendo o contexto do processo englobada pelas instruções
+a serem executadas, a região de memória, o PID do processo 

@@ -1,0 +1,10 @@
+O ciclo de vida das threads envolve 3 estados: Pronto, em execução, e bloqueado. O estado da thread vai mudar
+dependendo do escalonador, que vai mudar os estados das threads de um programa (e de todo o SO) de acordo
+com a necessidade de execução de instruções. As threads que precisarem executar alguma instrução entrarão numa
+fila, e a partir dessa fila os estados das threads serão escalonados. O problema da seção crítica relaciona-se
+com o ciclo de vida das threads, pois, a inconsistência de memória deste problema deve-se ao fato de uma thread
+poder ser escalonada do estado em execução para um dos outros durante o acesso a região de memória compartilhada
+pelas threads. Assim, as outras threads que a sucediam na fila podem alterar, ou não, o valor desta variável
+compartilhada, fazendo com que a thread mencionada, quando volte ao início da fila e vá continuar o acesso a região
+compartilhada, esteja com um valor desatualizado da região na instrução seguinte, ocasionando a inconsistência
+mencionada anteriormente

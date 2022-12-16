@@ -1,0 +1,27 @@
+int buf[BUF_SIZE]
+int front = 0, rear = 0;
+
+sem_t buffer_empty = BUF_SIZE, buffer_full = 0;
+sem_t mutexDeposit = 1, mutexFetch = 1;
+
+process Producer[i = 1 to M]{
+    while(1){
+        sem_wait(&buf_empty);
+        sem_wait(&mutexDeposit);
+        buf[rear] = data;
+        rear = (rear + 1) % BUF_SIZE;
+        sem_post(&mutexDeposit);
+        sem_post(&buf_full);
+    }
+}
+
+process Consumer[i = 1 to N]{
+    while(1){
+        sem_wait(&buf_full);
+        sem_wait(&mutexFetch);
+        buf[front] = data;
+        front = (front + 1) % BUF_SIZE;
+        sem_post(&mutexFetch);
+        sem_post(&buf_full);
+    }
+}
